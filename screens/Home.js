@@ -1,52 +1,24 @@
-import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+
+import TitleCard from "../components/TitleCard";
 
 export default function Home({ navigation }) {
-  const pressevent = () => {
-    navigation.push("Ducks");
+  const name = "Created By: Kevin";
+
+  
+
+  const pressEvent = (navPage) => {
+    navigation.push(navPage, { name: name });
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.mid}>
-        <TouchableOpacity onPress={() => navigation.push("Ducks")}>
-          <View style={styles.item}>
-            <Text style={styles.text}>Ducks</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={pressevent}>
-          <View style={styles.item}>
-            <Text
-              style={styles.text}
-              onPress={() => navigation.push("Turtles")}
-            >
-              Turtles
-            </Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={pressevent}>
-          <View style={styles.item}>
-            <Text
-              style={styles.text}
-              onPress={() => navigation.push("Flowers")}
-            >
-              Flowers
-            </Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={pressevent}>
-          <View style={styles.item}>
-            <Text
-              style={styles.text}
-              onPress={() => navigation.push("Flamingoes")}
-            >
-              Flamingoes
-            </Text>
-          </View>
-        </TouchableOpacity>
+        <TitleCard navPage="Ducks" pressEvent={pressEvent} />
+        <TitleCard navPage="Flamingoes" pressEvent={pressEvent} />
+        <TitleCard navPage="Turtles" pressEvent={pressEvent} />
+        <TitleCard navPage="Flowers" pressEvent={pressEvent} />
       </View>
     </View>
   );
@@ -60,9 +32,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   mid: {
-    flex: 0.5,
     width: 350,
-    height: 350,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
@@ -70,7 +40,6 @@ const styles = StyleSheet.create({
 
   item: {
     width: 150,
-    height: 150,
     borderWidth: 2,
     backgroundColor: "dodgerblue",
     marginBottom: 30,

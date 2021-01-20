@@ -10,9 +10,6 @@ const screens = {
   Home: {
     screen: Home,
   },
-  Ducks: {
-    screen: Ducks,
-  },
   Turtles: {
     screen: Turtles,
   },
@@ -21,6 +18,9 @@ const screens = {
   },
   Flowers: {
     screen: Flowers,
+  },
+  Ducks: {
+    screen: Ducks,
   },
 };
 
